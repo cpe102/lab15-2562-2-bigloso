@@ -3,11 +3,11 @@
 #include<ctime>
 using namespace std;
 
-void randData(double *,int,int);
+void randData(double *A,int B,int C);
 
-void findRowSum(const double *,double *,int,int);
+void findRowSum(const double *A,double *B,int C,int D);
 
-void showData(double *,int,int);
+void showData(double *A,int B,int C);
 
 int main(){
 	srand(time(0));
@@ -25,3 +25,35 @@ int main(){
 }
 
 //Write definition of randData(), showData() and findRowSum()
+void randData(double *A,int B,int C){
+	
+	for(int i=0;i<(B*C);i++){
+		 *(A+i)=(rand()%101)/100.00 ;
+		
+	}
+}
+
+void findRowSum(const double *A,double *B,int C,int D){
+	double  sum = 0 ;
+	int Z = 0 ;
+	for(int i=0;i<C;i++){
+		for(int j=0;j<D;j++){
+			sum += *(A+Z) ;
+			Z++ ;
+		}
+		*(B+i) = sum ;
+		sum = 0 ;
+
+	}
+}
+
+void showData(double *A,int B,int C){
+	int Z = 0 ;
+	for(int i=0;i<B;i++){
+		for(int j = 0;j<C;j++){
+			cout << *(A+Z) << "\t";
+			Z++ ;
+		}
+		cout << endl ;
+	}
+}
